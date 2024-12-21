@@ -1,0 +1,53 @@
+<script src="../static/js/script.js"></script>
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<header class="header">
+    <h1>{{ name }}</h1>
+    <h2>{{ title }}</h2>
+    <p>{{ tagline }}</p>
+    <a href="{{ cta_link }}" class="cta-button">{{ cta_text }}</a>
+</header>
+
+<!-- Navigation -->
+<nav class="nav">
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- About Section -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>{{ about_description }}</p>
+    <h3>Skills</h3>
+    <ul>
+        {% for skill in skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Technologies</h3>
+    <ul>
+        {% for tech in technologies %}
+        <li>{{ tech }}</li>
+        {% endfor %}
+    </ul>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:{{ contact_email }}">{{ contact_email }}</a></p>
+    <p>Phone: {{ contact_phone }}</p>
+    <h3>Find me online:</h3>
+    <ul>
+        {% for platform, link in social_links.items %}
+        <li><a href="{{ link }}" target="_blank">{{ platform }}</a></li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
