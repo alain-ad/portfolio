@@ -29,7 +29,94 @@ def home(request):
     return render(request,'home.html', context)
 
 def about(request):
-    return render(request, 'about.html')
+    context = {
+        # Informations personnelles
+        'personal_info': {
+            'name': 'Alain ANDRIANALIJAONA',
+            'title': 'Développeur Full Stack',
+            'bio': 'Développeur web passionné avec 52 ans.',
+            'image': 'path/to/profile/image.jpg',  # Chemin vers l'image de profil
+        },
+        
+        # Compétences techniques
+        'skills': {
+            'frontend': [
+                {'name': 'React.js', 'level': 70},
+                # {'name': 'Vue.js', 'level': 85},
+                # {'name': 'HTML5/CSS3', 'level': 95},
+                # {'name': 'JavaScript (ES6+)', 'level': 90},
+            ],
+            'backend': [
+                {'name': 'Node.js', 'level': 85},
+                {'name': 'Python/Django', 'level': 90},
+                # {'name': 'PHP/Laravel', 'level': 80},
+                {'name': 'API REST', 'level': 85},
+            ],
+            'tools': [
+                {'name': 'Git', 'level': 80},
+                # {'name': 'Docker', 'level': 85},
+                # {'name': 'AWS', 'level': 80},
+                # {'name': 'CI/CD', 'level': 85},
+            ]
+        },
+
+        # Expérience professionnelle
+        'experiences': [
+            # {
+            #     'title': 'Développeur Full Stack Senior',
+            #     'company': 'Entreprise XYZ',
+            #     'period': '2020 - Présent',
+            #     'description': 'Développement d\'applications web complexes, direction d\'équipe, architecture de solutions.',
+            #     'technologies': ['React', 'Node.js', 'AWS']
+            # },
+            {
+                'title': 'Développeur Front-end',
+                'company': 'Startup ABC',
+                'period': '2018 - 2020',
+                'description': 'Création d\'interfaces utilisateur réactives, optimisation des performances.',
+                'technologies': ['Vue.js', 'JavaScript', 'CSS3']
+            }
+        ],
+
+        # Formation
+        'education': [
+            {
+                'degree': 'Licens en Informatique',
+                'school': 'École Supérieur de Management et de l\' informatique appliqué',
+                'year': '2022',
+                'description': 'Spécialisation en développement web et applications mobiles'
+            },
+            # {
+            #     'degree': 'Licence en Informatique',
+            #     'school': 'Université de Sciences',
+            #     'year': '2016',
+            #     'description': 'Formation générale en informatique'
+            # }
+        ],
+
+        # Langues
+        'languages': [
+            {'name': 'Malagasy', 'level': 'Langue maternelle'},
+            {'name': 'Français', 'level': 'Courant'},
+            {'name': 'Anglais', 'level': 'Intermédiaire'},
+        ]
+
+        # Certifications
+        # 'certifications': [
+        #     {
+        #         'name': 'AWS Certified Developer',
+        #         'issuer': 'Amazon Web Services',
+        #         'year': '2023'
+        #     },
+        #     {
+        #         'name': 'Professional Scrum Master I',
+        #         'issuer': 'Scrum.org',
+        #         'year': '2022'
+        #     }
+        # ]
+    }
+    
+    return render(request, 'about.html', context)
 
 def projects(request):
     return render(request, 'projects.html')

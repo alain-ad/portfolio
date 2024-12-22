@@ -1,4 +1,4 @@
-<script src="../static/js/script.js"></script>
+<!-- <script src="../static/js/script.js"></script> -->
 {% extends 'base.html' %}
 
 {% block title %}Home{% endblock %}
@@ -15,8 +15,9 @@
 <!-- Navigation -->
 <nav class="nav">
     <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href="{% url 'projects' %}">projects</a></li>
     </ul>
 </nav>
 
