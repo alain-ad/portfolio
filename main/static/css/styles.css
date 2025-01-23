@@ -14,7 +14,7 @@ body {
 
 /* Header Styles for Home Page */
 header {
-    background-image: url("../images/portfolio.jpeg");
+    background-image: url("../images/potfolio.jpeg");
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -89,33 +89,53 @@ header {
 }
 
 /* About Page Styles */
-/* CSS for the About section */
 #about {
-    padding: 80px 20px;
+    padding: 60px 20px;
+    background-color: #f9fafb;
     max-width: 1200px;
     margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-#about h2 {
+#about h1 {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
     color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+#about h2 {
+    font-size: 2rem;
+    color: #374151;
+    margin-bottom: 1rem;
 }
 
 #about h3 {
     font-size: 1.8rem;
-    margin: 2rem 0 1rem;
+    color: #1f2937;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+#about h4 {
+    font-size: 1.4rem;
     color: #374151;
+    margin-bottom: 1rem;
 }
 
 #about p {
-    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
     color: #4b5563;
+    line-height: 1.8;
+    margin-bottom: 2rem;
 }
 
 #about ul {
     list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -124,19 +144,104 @@ header {
 
 #about ul li {
     background-color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 20px;
+    padding: 10px 15px;
+    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 calc(30% - 10px);
+    text-align: center;
 }
 
 #about ul li:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+#about ul li p {
+    margin: 0.5rem 0;
+}
+
+#about ul li h4 {
+    font-size: 1.2rem;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+}
+
+#about ul li span {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+/* Projects Section */
+#projects {
+    padding: 60px 20px;
+    background-color: #f1f5f9;
+    text-align: center;
+}
+
+#projects h1 {
+    font-size: 2.5rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+#projects h2 {
+    font-size: 2rem;
+    color: #374151;
+    margin-bottom: 1rem;
+}
+
+#projects .project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+#projects .project-item {
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 calc(30% - 10px);
+    height: 200px;
+    position: relative;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+#projects .project-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#projects .project-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#projects .project-item p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Responsive Design for Projects Section */
+@media (max-width: 768px) {
+    #projects .project-item {
+        flex: 1 1 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    #projects .project-item {
+        flex: 1 1 100%;
+    }
+}
 /* Contact Section */
-/* CSS for the Contact section */
 #contact {
     background-color: white;
     border-radius: 10px;
@@ -167,15 +272,23 @@ header {
     }
     
     #about {
-        padding: 60px 20px;
+        padding: 40px 15px;
     }
     
-    #about h2 {
+    #about h1 {
         font-size: 2rem;
     }
-    
+
+    #about h2 {
+        font-size: 1.6rem;
+    }
+
     #about h3 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    #about ul li {
+        flex: 1 1 calc(50% - 10px);
     }
 }
 
@@ -194,133 +307,7 @@ header {
     #about ul {
         justify-content: center;
     }
-}
-/* CSS de la page About Me */
 
-/* Section principale */
-#about {
-    padding: 60px 20px;
-    background-color: #f9fafb;
-    max-width: 1200px;
-    margin: 0 auto;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Titres principaux */
-#about h1 {
-    font-size: 2.5rem;
-    color: #1f2937;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-#about h2 {
-    font-size: 2rem;
-    color: #374151;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-/* Biographie */
-#about p {
-    font-size: 1.1rem;
-    color: #4b5563;
-    line-height: 1.8;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-/* Compétences */
-#about h3 {
-    font-size: 1.8rem;
-    color: #1f2937;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
-#about h4 {
-    font-size: 1.4rem;
-    color: #374151;
-    margin-bottom: 1rem;
-}
-
-#about ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2rem 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-#about ul li {
-    background-color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 1 1 calc(30% - 10px);
-    text-align: center;
-}
-
-#about ul li:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-#about ul li p {
-    margin: 0.5rem 0;
-}
-
-/* Expériences professionnelles */
-#about ul li h4 {
-    font-size: 1.2rem;
-    color: #2563eb;
-    margin-bottom: 0.5rem;
-}
-
-#about ul li p {
-    color: #4b5563;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-#about ul li span {
-    color: #6b7280;
-    font-size: 0.9rem;
-}
-
-/* Certifications */
-#about ul li:last-child {
-    margin-bottom: 0;
-}
-
-/* Réactivité (Responsive Design) */
-@media (max-width: 768px) {
-    #about {
-        padding: 40px 15px;
-    }
-
-    #about h1 {
-        font-size: 2rem;
-    }
-
-    #about h2 {
-        font-size: 1.6rem;
-    }
-
-    #about h3 {
-        font-size: 1.4rem;
-    }
-
-    #about ul li {
-        flex: 1 1 calc(50% - 10px);
-    }
-}
-
-@media (max-width: 480px) {
     #about ul li {
         flex: 1 1 100%;
     }

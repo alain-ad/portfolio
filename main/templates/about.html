@@ -3,12 +3,13 @@
 {% block title %}About Me{% endblock %}
 
 {% block content %}
+{% load static %}
 <section id="about">
     <!-- Informations personnelles -->
     <h1>{{ personal_info.name }}</h1>
     <h2>{{ personal_info.title }}</h2>
     <p>{{ personal_info.bio }}</p>
-    <img src="{% static 'images/portfolio.jpeg' %}" alt="{{ personal_info.name }}">
+    <img src="{% static 'images/potfolio.jpeg' %}" alt="{{ personal_info.name }}">
 
     <!-- Compétences techniques -->
     <h3>Compétences Techniques</h3>

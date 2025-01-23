@@ -18,6 +18,21 @@ def home(request):
         'skills': ["HTML", "CSS", "JavaScript", "Python", "Django", "React"],  # Vos compétences
         'technologies': ["PostgreSQL", "Git"],  # Vos technologies
 
+        # Projects section
+        'projects': [
+            {
+                'title': 'Portfolio Website',
+                'description': 'A personal portfolio website to showcase my projects and skills.',
+                'technologies': ['HTML', 'CSS', 'JavaScript', 'Django'],
+                'link': 'https://github.com/alain-ad/portfolio-website'
+            },
+            {
+                'title': 'E-commerce Platform',
+                'description': 'An e-commerce platform with user authentication, product management, and payment integration.',
+                'technologies': ['React', 'Node.js', 'Express', 'MongoDB'],
+                'link': 'https://github.com/alain-ad/e-commerce-platform'
+            },
+        ],
         # Contact section
         'contact_email': "alainandrianalijaona@gmail.com",
         'contact_phone': "+261 34 96 580 10",
@@ -25,6 +40,8 @@ def home(request):
             'LinkedIn': "https://www.linkedin.com/in/rojo-alain-andrianalijaona-9818a0233/",
             'GitHub': "https://github.com/alain-ad",
         },
+
+        
     }
     return render(request,'home.html', context)
 
@@ -34,7 +51,7 @@ def about(request):
         'personal_info': {
             'name': 'Alain ANDRIANALIJAONA',
             'title': 'Développeur Full Stack',
-            'bio': 'Développeur web passionné avec 52 ans.',
+            'bio': 'Développeur web passionné avec 2 ans.',
             'image': 'path/to/profile/image.jpg',  # Chemin vers l'image de profil
         },
         
@@ -119,9 +136,26 @@ def about(request):
     return render(request, 'about.html', context)
 
 def projects(request):
+    context = {
+        'projects': [
+            {
+                'title': 'Portfolio Website',
+                'description': 'A personal portfolio website to showcase my projects and skills.',
+                'technologies': ['HTML', 'CSS', 'JavaScript', 'Django'],
+                'link': 'https://github.com/alain-ad/portfolio-website'
+            },
+            {
+                'title': 'E-commerce Platform',
+                'description': 'An e-commerce platform with user authentication, product management, and payment integration.',
+                'technologies': ['React', 'Node.js', 'Express', 'MongoDB'],
+                'link': 'https://github.com/alain-ad/e-commerce-platform'
+            }
+        ]
+    }
     return render(request, 'projects.html')
 
 def contact(request):
+
     return render(request, 'contact.html')
 
 # from .models import Project  # Import du modèle Project
