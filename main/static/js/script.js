@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     // ----------- Variables globales -----------
     const header = document.querySelector('.header');
