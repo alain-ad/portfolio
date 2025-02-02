@@ -67,6 +67,7 @@ portfolio/
 │   ├── templates/
 │   │   └── app/
 │   │       └── home.html
+            |__base.html
 │   ├── static/
 │       ├── css/
 │       │   └── styles.css
