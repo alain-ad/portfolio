@@ -10,15 +10,17 @@
     <h1>{{ name }}</h1>
     <h2>{{ title }}</h2>
     <p>{{ tagline }}</p>
-    <a href="#contact" class="cta-button">{{ cta_text }}</a>
+    <a href="{{ cta_link }}" class="cta-button">{{ cta_text }}</a>
 </header>
 
 <!-- Navigation -->
 <nav class="nav">
     <ul>
         <li><a href="#about">About</a></li>
-        <li><a href="#projects">projects</a></li>
+        <li><a href="#experience">experiences</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
+
     </ul>
 </nav>
 
@@ -26,37 +28,86 @@
 <section id="about">
     <h2>About Me</h2>
     <p>{{ about_description }}</p>
+    <h3>Profile</h3>
+    <p>{{ personal_info.bio }}</p>
+    
     <h3>Skills</h3>
+    <h4>Frontend</h4>
     <ul>
-        {% for skill in skills %}
-        <li>{{ skill }}</li>
+        {% for skill in skills.frontend %}
+        <li>{{ skill.name }} ({{ skill.level }}%)</li>
         {% endfor %}
     </ul>
-    <h3>Technologies</h3>
+    <h4>Backend</h4>
     <ul>
-        {% for tech in technologies %}
-        <li>{{ tech }}</li>
+        {% for skill in skills.backend %}
+        <li>{{ skill.name }} ({{ skill.level }}%)</li>
+        {% endfor %}
+    </ul>
+    <h4>Tools</h4>
+    <ul>
+        {% for skill in skills.tools %}
+        <li>{{ skill.name }} ({{ skill.level }}%)</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Merged Education Section -->
+    <h3>Education</h3>
+    {% for edu in education %}
+    <div class="education-item">
+        <h4>{{ edu.degree }}</h4>
+        <p>{{ edu.school }} ({{ edu.year }})</p>
+        <p>{{ edu.description }}</p>
+    </div>
+    {% endfor %}
+
+    <!-- Merged Languages Section -->
+    <h3>Languages</h3>
+    <ul>
+        {% for language in languages %}
+        <li>{{ language.name }} - {{ language.level }}</li>
         {% endfor %}
     </ul>
 </section>
 
-<!-- projects section -->
-<section id="projects">
-    <h2>Projects</h2>
-    {% for project in projects %}
-    <div class="project">
-        <h3>{{ project.title }}</h3>
-        <p>{{ project.description }}</p>
+<!-- Experience Section -->
+<section id="experience">
+    <h2>Experience</h2>
+    {% for exp in experiences %}
+    <div class="experience-item">
+        <h3>{{ exp.title }}</h3>
+        <p>{{ exp.company }} ({{ exp.period }})</p>
+        <p>{{ exp.description }}</p>
         <h4>Technologies Used:</h4>
         <ul>
-            {% for tech in project.technologies %}
+            {% for tech in exp.technologies %}
             <li>{{ tech }}</li>
             {% endfor %}
         </ul>
-        <a href="{{ project.link }}" target="_blank">View Project</a>
     </div>
     {% endfor %}
 </section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <div class="cont">
+        <h2>Projects</h2>
+        {% for project in projects %}
+        <div class="project" style="background-image: url('{{ project.image }}');">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <h4>Technologies Used:</h4>
+            <ul>
+                {% for tech in project.technologies %}
+                <li>{{ tech }}</li>
+                {% endfor %}
+            </ul>
+            <a href="{{ project.link }}" target="_blank">View Project</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
 <!-- Contact Section -->
 <section id="contact">
     <h2>Contact Me</h2>

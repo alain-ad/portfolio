@@ -5,16 +5,24 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main-bg-color: #f8f9fa;
+  --main-text-color: #333;
+  --primary-color: #3b82f6;
+  --secondary-color: #2563eb;
+  --header-bg-image: url("../images/potfolio.jpeg");
+}
+
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #f8f9fa;
+  color: var(--main-text-color);
+  background-color: var(--main-bg-color);
 }
 
 /* Header Styles */
 header {
-  background-image: url("../images/potfolio.jpeg");
+  background-image: var(--header-bg-image);
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -47,26 +55,31 @@ header {
   display: inline-block;
   padding: 15px 30px;
   background-color: white;
-  color: #3b82f6;
+  color: var(--primary-color);
   text-decoration: none;
   border-radius: 30px;
   font-weight: 600;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: var(--secondary-color);
+  transform: scale(1.05);
 }
 
 /* Navigation */
 .nav {
-  background-color: white;
+  background-color: white; /* Couleur de fond par défaut */
   padding: 1rem 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: background-color 0.3s; /* Transition pour le changement de couleur */
+}
+
+.dark-mode .nav {
+  background-color: #2d2d2d; /* Couleur de fond en mode sombre */
 }
 
 .nav ul {
@@ -77,15 +90,26 @@ header {
 }
 
 .nav a {
-  color: #333;
+  color: #333; /* Couleur du texte par défaut */
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 1rem;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dark-mode .nav a {
+  color: #e5e5e5; /* Couleur du texte en mode sombre */
 }
 
 .nav a:hover {
-  color: #3b82f6;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 5px;
+}
+
+.dark-mode .nav a:hover {
+  background-color: var(--primary-color);
+  color: white; /* Assurez-vous que le texte est lisible en mode sombre */
 }
 
 /* About Section */
@@ -93,16 +117,29 @@ header {
   padding: 60px 20px;
   background-color: #f9fafb;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto;
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 #about h2 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: #1f2937;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+#about h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--secondary-color);
+  border-radius: 2px;
 }
 
 #about p {
@@ -115,8 +152,7 @@ header {
 #about h3 {
   font-size: 1.8rem;
   color: #1f2937;
-  margin-bottom: 1rem;
-  margin-top: 2rem;
+  margin: 2rem 0 1rem;
 }
 
 #about ul {
@@ -144,12 +180,88 @@ header {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Updated Projects Section */
+/* Experience Section */
+#experience {
+  padding: 60px 20px;
+  background-color: #ffffff;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#experience h2 {
+  font-size: 3rem;
+  color: #1f2937;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+}
+
+#experience h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--secondary-color);
+  border-radius: 2px;
+}
+
+.experience-item {
+  margin-bottom: 2.5rem;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+}
+
+.experience-item h3 {
+  font-size: 1.8rem;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.experience-item p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+}
+
+.experience-item h4 {
+  font-size: 1.2rem;
+  color: #1f2937;
+  margin-top: 1rem;
+}
+
+.experience-item ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.experience-item ul li {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Projects Section */
 #projects {
   padding: 80px 20px;
   background-color: #ffffff;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 #projects h2 {
@@ -168,11 +280,12 @@ header {
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background-color: #2563eb;
+  background-color: var(--secondary-color);
   border-radius: 2px;
 }
 
 #projects .project {
+  padding: 50px;
   position: relative;
   height: 400px;
   margin-bottom: 3rem;
@@ -180,7 +293,6 @@ header {
   overflow: hidden;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  background-image: url("../image/potfolio.jpeg");
   background-size: cover;
   background-position: center;
 }
@@ -196,7 +308,7 @@ header {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8));
+  background: linear-gradient(to bottom, rgba(39, 38, 38, 0.1), rgba(0,0,0,0.8));
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -207,7 +319,7 @@ header {
 
 #projects .project h3 {
   font-size: 1.8rem;
-  color: #2563eb;
+  color: #1445b8;
   margin-bottom: 1rem;
   position: relative;
   z-index: 2;
@@ -252,10 +364,10 @@ header {
 #projects .project a {
   display: inline-block;
   padding: 12px 25px;
-  background-color: #2563eb;
+  background-color: #374e38;
   color: white;
   text-decoration: none;
-  border-radius: 30px;
+  border-radius: 10px 30px 30px 10px;
   font-weight: 500;
   transition: all 0.3s ease;
   position: relative;
@@ -267,15 +379,12 @@ header {
   transform: translateY(-2px);
 }
 
-/* Updated Contact Section */
+/* Contact Section */
 #contact {
   padding: 80px 20px;
   background-color: #f8fafc;
-  background-image: url("../image/potfolio.jpeg");
-  background-size: cover;
-  background-position: center;
   max-width: 1200px;
-  margin: 0 auto 60px;
+  margin: 20px auto 60px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   position: relative;
@@ -294,7 +403,7 @@ header {
 
 #contact h2 {
   font-size: 3rem;
-  color: #1f2937;
+  color: #070707;
   margin-bottom: 2rem;
   text-align: center;
   position: relative;
@@ -308,20 +417,19 @@ header {
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background-color: #2563eb;
+  background-color: var(--secondary-color);
   border-radius: 2px;
 }
 
 #contact p {
   font-size: 1.2rem;
-  color: #4b5563;
+  color: #000000;
   margin-bottom: 1.5rem;
   text-align: center;
-  position: relative;
 }
 
 #contact a {
-  color: #2563eb;
+  color: var(--primary-color);
   text-decoration: none;
   transition: color 0.3s ease;
   position: relative;
@@ -385,7 +493,7 @@ header {
     font-size: 1.5rem;
   }
 
-  #about, #projects, #contact {
+  #about, #projects, #contact, #experience {
     padding: 40px 15px;
   }
 
@@ -396,7 +504,7 @@ header {
   #contact ul {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
-  
+
   #about ul li {
     flex: 1 1 calc(50% - 1rem);
   }
@@ -417,29 +525,20 @@ header {
     height: 300px;
   }
 
-  #about ul li {
+  #about ul li,
+  #contact ul li {
     flex: 1 1 100%;
   }
-
-  #contact ul li {
-    min-width: 100%;
-  }
-}
-/* Mode clair par défaut */
-body {
-  font-family: 'Inter', sans-serif;
-  color: #333;
-  background-color: #f8f9fa;
 }
 
-/* Mode sombre */
+/* Dark Mode Styles */
 .dark-mode {
   color-scheme: dark;
 }
 
 .dark-mode body {
   background-color: #1a1a1a;
-  color: #e5e5e5;
+  color: #ffffff;
 }
 
 .dark-mode .header,
@@ -453,13 +552,14 @@ body {
 }
 
 .dark-mode .nav a:hover {
-  color: #3b82f6;
+  color: #a71e1a;
 }
 
 .dark-mode #about,
 .dark-mode #projects,
-.dark-mode #contact {
-  background-color: #2d2d2d;
+.dark-mode #contact,
+.dark-mode #experience {
+  background-color: #353232;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -467,14 +567,16 @@ body {
 .dark-mode #about h3,
 .dark-mode #projects h2,
 .dark-mode #projects h3,
-.dark-mode #contact h2,
-.dark-mode #contact h3 {
+.dark-mode #experience h2,
+.dark-mode #experience h3 {
   color: #e5e5e5;
 }
-
+.dark-mode #contact h2,ph3{
+  color: #272626;
+}
 .dark-mode #about p,
 .dark-mode #projects p,
-.dark-mode #contact p {
+.dark-mode #experience p {
   color: #d1d5db;
 }
 
@@ -490,7 +592,7 @@ body {
   color: #e5e5e5;
 }
 
-/* Bouton de basculement du mode sombre */
+/* Dark Mode Toggle Button */
 .dark-mode-toggle {
   position: fixed;
   top: 20px;
@@ -505,7 +607,7 @@ body {
 .dark-mode-toggle label {
   width: 48px;
   height: 24px;
-  background-color: #e2e8f0;
+  background-color: #eef3f8;
   border-radius: 12px;
   cursor: pointer;
   position: relative;
