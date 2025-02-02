@@ -9,7 +9,7 @@ Ce projet est un portfolio statique sans base de données. Il est conçu pour ê
 4. [Utilisation](#utilisation)
 5. [Structure du projet](#structure-du-projet)
 6. [Contribuer](#contribuer)
-7. [Licence](#licence)
+
 
 ## Introduction
 Ce portfolio statique permet de présenter vos projets, compétences et expériences de manière élégante et professionnelle. Il est entièrement statique, ce qui signifie qu'il n'y a pas de base de données ou de backend à gérer.
@@ -96,7 +96,7 @@ Ce projet a été développé en collaboration avec une autre personne. Voici co
 2. **Utilisation de Git** : Nous avons utilisé Git pour le contrôle de version et GitHub pour héberger le dépôt. 
 
 
-4. **Revue de code** : Chaque Pull Request a été revue par l'autre contributeur pour s'assurer de la qualité du code et de la conformité aux normes du projet.
+3. **Revue de code** : Chaque Pull Request a été revue par l'autre contributeur pour s'assurer de la qualité du code et de la conformité aux normes du projet.
 
 ## Django
 
